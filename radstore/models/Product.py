@@ -10,8 +10,9 @@ class Product(db.Model):
     price = db.Column(db.Float)
     quantity = db.Column(db.Integer)
 
-    def __init__(self, name, description, price, quantity):
+    def __init__(self, name, brandId, description, price, quantity):
         self.name = name
+        self.brandId = brandId
         self.description = description
         self.price = price
         self.quantity = quantity

@@ -1,7 +1,7 @@
 import os
 from .extensions import db, ma
 from .models import Brand, Product, User
-from .controllers.main import main
+from .controllers.productController import productController
 from .controllers.api import api
 
 def set_up(app):
@@ -16,7 +16,7 @@ def set_up(app):
 	ma.init_app(app)
 
 	# Init the controllers/router
-	app.register_blueprint(main)
+	app.register_blueprint(productController)
 	app.register_blueprint(api)
 
 	# Init database models
