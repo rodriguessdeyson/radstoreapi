@@ -1,5 +1,5 @@
 from ..models.Product import Product
-from ..dbContext import productRepository
+from ..repository import productRepository
 
 def add_product(name, brandId, description, price, quantity):
 	new_product = Product(name, brandId, description, price, quantity)
@@ -7,3 +7,11 @@ def add_product(name, brandId, description, price, quantity):
 
 def get_all():
 	return productRepository.select_all()
+
+def get(productId):
+	product = productRepository.select(productId)
+	return product
+
+
+def delete(productId):
+	productRepository.delete(productId)

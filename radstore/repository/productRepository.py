@@ -1,5 +1,5 @@
 from flask import jsonify
-from ..extensions import db, ma
+from ..dbContext import db, ma
 from ..models.Product import Product
 
 # Product Schemas
@@ -19,4 +19,15 @@ def insert(product):
 def select_all():
 	products = Product.query.all()
 	result = products_schema.dump(products)
+
 	return jsonify(result)
+
+def select(productId):
+	product = Product.query.get(productId)
+
+	return product_schema.jsonify(product)
+
+def delete(productId):
+	product = Product.query.get(productId)
+	db.session.delete(product)
+	db.session.commit()

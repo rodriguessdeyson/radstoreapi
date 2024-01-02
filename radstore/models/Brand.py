@@ -1,4 +1,4 @@
-from ..extensions import db
+from ..dbContext import db
 
 class Brand(db.Model):
 	__tablename__ = 'brand'
@@ -7,5 +7,6 @@ class Brand(db.Model):
 	name = db.Column(db.String(100))
 	products = db.relationship("Product", backref = "radstore.brand", lazy = True)
 
-	def __init__(self, name):
+	def __init__(self, name, products = []):
 		self.name = name
+		self.products = products

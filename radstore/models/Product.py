@@ -1,4 +1,4 @@
-from ..extensions import db
+from ..dbContext import db
 
 class Product(db.Model):
     __tablename__ = 'product'

@@ -1,4 +1,4 @@
-from ..extensions import db
+from ..dbContext import db
 
 class User(db.Model):
 	__tablename__ = 'user'

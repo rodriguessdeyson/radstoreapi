@@ -1,7 +1,7 @@
 import os
 from flask import Flask
 from dotenv import load_dotenv
-from .extensions import db
+from .dbContext import db
 from .models.Product import *
 from .config import set_up
 
